@@ -12,5 +12,11 @@
     "RPGTRACKING"
   ],
   "author": "Jason Kadman",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  }
 }
