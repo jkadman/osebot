@@ -14,7 +14,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // PostgreSQL pool
 const pool = new Pool({
   user: process.env.database_user,
-  host: localhost,
+  host: 'localhost',
   database: process.env.database_name,
   password: process.env.database_password,
   port: 5432
