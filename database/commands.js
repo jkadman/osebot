@@ -1,4 +1,4 @@
-const { pool } = require('./pool');
+const { pool } = require('pg');
 
 // command to add character to database
 async function addCharacter(interaction) {
