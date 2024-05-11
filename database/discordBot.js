@@ -11,7 +11,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 const sequelize = new Sequelize(process.env.database_name, process.env.database_user, process.env.database_password, {
   host: 'localhost',
-	dialect: 'sqlite',
+	dialect: 'psql',
 	logging: false,
 	// SQLite only
 	//storage: 'database.sqlite',
@@ -19,6 +19,7 @@ const sequelize = new Sequelize(process.env.database_name, process.env.database_
 
 // When the client is ready, run this code (only once)
 client.once(Events.ClientReady, readyClient => {
+  Tags.sync();
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 });
 
