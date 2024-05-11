@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 
+// get server info for bot
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('server')
