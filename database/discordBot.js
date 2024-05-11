@@ -9,6 +9,14 @@ const { Client, Events, GatewayIntentBits } = require('discord.js');
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+const sequelize = new Sequelize('', 'user', 'password', {
+  host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	// SQLite only
+	//storage: 'database.sqlite',
+});
+
 // When the client is ready, run this code (only once)
 client.once(Events.ClientReady, readyClient => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
