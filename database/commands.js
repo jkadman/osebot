@@ -2,15 +2,8 @@ const { pool } = require('./pool');
 
 // command to add character to database
 async function addCharacter(interaction) {
-  
-    if (!interaction.isChatInputCommand()) return;
-  
-    const { commandName } = interaction;
-    // ...
-    if (commandName === 'addcharacter') {
       const character_name = interaction.options.getString('name');
       const level = interaction.options.getString('level');
-  
       // get player name (discord username)
       const player_name = interaction.user.username;
   
@@ -22,12 +15,16 @@ async function addCharacter(interaction) {
         await pool.query(query);
   
         // confirmation message
-        return interaction.reply('Character "${character_name}" added successfully.')
+        return 'Character "${character_name}" added successfully.';
       }
       catch (error) {
         // handle errors
-        return interaction.reply('Something went wrong with add "${character_name}".')
+        console.error('Error adding character: ', error);
+        throw new Error('Something went wrong with add "${character_name}".');
       }
     }
+
+    module.exports = {
+      addCharacter
+    };
   
-}
