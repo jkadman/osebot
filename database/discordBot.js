@@ -9,7 +9,7 @@ const { Client, Events, GatewayIntentBits } = require('discord.js');
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-const sequelize = new Sequelize('', 'user', 'password', {
+const sequelize = new Sequelize(process.env.database_name, process.env.database_user, process.env.database_password, {
   host: 'localhost',
 	dialect: 'sqlite',
 	logging: false,
