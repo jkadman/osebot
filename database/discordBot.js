@@ -34,34 +34,34 @@ client.once(Events.ClientReady, readyClient => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 });
 
-client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
+// client.on(Events.InteractionCreate, async interaction => {
+// 	if (!interaction.isChatInputCommand()) return;
 
-	const { commandName } = interaction;
-	// ...
-  if (commandName === 'addcharacter') {
-    const character_name = interaction.options.getString('name');
-    const level = interaction.options.getString('level');
+// 	const { commandName } = interaction;
+// 	// ...
+//   if (commandName === 'addcharacter') {
+//     const character_name = interaction.options.getString('name');
+//     const level = interaction.options.getString('level');
 
-    // get player name (discord username)
-    const player_name = interaction.user.username;
+//     // get player name (discord username)
+//     const player_name = interaction.user.username;
 
-    try {
-      const query = {
-        text: 'INSERT INTO character(name, level, player_name) VALUES($1, $2, $3)',
-        values: [character_name, level, player_name]
-      };
-      await pool.query(query);
+//     try {
+//       const query = {
+//         text: 'INSERT INTO character(name, level, player_name) VALUES($1, $2, $3)',
+//         values: [character_name, level, player_name]
+//       };
+//       await pool.query(query);
 
-      // confirmation message
-      return interaction.reply('Character "${character_name}" added successfully.')
-    }
-    catch (error) {
-      // handle errors
-      return interaction.reply('Something went wrong with add "${character_name}".')
-    }
-  }
-});
+//       // confirmation message
+//       return interaction.reply('Character "${character_name}" added successfully.')
+//     }
+//     catch (error) {
+//       // handle errors
+//       return interaction.reply('Something went wrong with add "${character_name}".')
+//     }
+//   }
+// });
 
 // Login to Discord with your client's token
 client.login(process.env.DISCORD_TOKEN);
