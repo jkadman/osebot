@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 
+// get user info
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('user')
