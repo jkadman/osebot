@@ -34,6 +34,34 @@ client.once(Events.ClientReady, readyClient => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 });
 
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const { commandName } = interaction;
+
+	if (commandName === 'addtag') {
+		const tagName = interaction.options.getString('name');
+		const tagDescription = interaction.options.getString('description');
+
+		try {
+			const query = {
+        text: 'INSERT INTO character(character_name, level, player_name) VALUES($1, $2, $3)',
+        values: [character_name, level, player_name]
+      };
+      await pool.query(query);
+
+      // confirmation message
+      return 'Character "${character_name}" added successfully.';
+		}
+		catch (error) {
+			if (error.name === 'SequelizeUniqueConstraintError') {
+				return interaction.reply('That tag already exists.');
+			}
+
+			return interaction.reply('Something went wrong with adding a tag.');
+		}
+	}
+});
 // client.on(Events.InteractionCreate, async interaction => {
 // 	if (!interaction.isChatInputCommand()) return;
 

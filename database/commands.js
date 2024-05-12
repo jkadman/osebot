@@ -8,10 +8,14 @@ async function addCharacter(interaction) {
       const player_name = interaction.user.username;
   
       try {
+        // const query = {
+        //   text: 'INSERT INTO character(character_name, level, player_name) VALUES($1, $2, $3)',
+        //   values: [character_name, level, player_name]
+        // };
         const query = {
-          text: 'INSERT INTO character(character_name, level, player_name) VALUES($1, $2, $3)',
-          values: [character_name, level, player_name]
+          text: 'SELECT * FROM characters',
         };
+        console.log('query', query);
         await pool.query(query);
   
         // confirmation message

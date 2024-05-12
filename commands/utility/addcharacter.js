@@ -12,10 +12,11 @@ module.exports = {
 
 		const characterName = interaction.options.getString('character_name');
 		const characterLevel = interaction.options.getString('level')
+		const player_name = interaction.user.username;
 		// async execute()
     // let test = [0];
 		try {
-			await addCharacter(interaction, characterName, characterLevel);
+			await addCharacter(interaction, characterName, characterLevel, player_name);
 
 			// send confirmation
 			await interaction.reply('Character successfully added');
