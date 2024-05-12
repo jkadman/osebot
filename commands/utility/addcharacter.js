@@ -10,7 +10,7 @@ module.exports = {
 		.setDescription('Add Character to the characters database.'),
 	async execute(interaction) {
 
-		const characterName = interaction.options.getString('characterName');
+		const characterName = interaction.options.getString('character_name');
 		const characterLevel = interaction.options.getString('level')
 		// async execute()
     // let test = [0];
@@ -21,7 +21,7 @@ module.exports = {
 			await interaction.reply('Character successfully added');
 		} catch (error) {
 			// handle error
-			console.error('Error adding gear: ', error);
+			console.error('Error adding character: ', error);
 			await interaction.reply('Failed to add character');
 		}
     

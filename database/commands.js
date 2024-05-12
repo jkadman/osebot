@@ -9,7 +9,7 @@ async function addCharacter(interaction) {
   
       try {
         const query = {
-          text: 'INSERT INTO character(name, level, player_name) VALUES($1, $2, $3)',
+          text: 'INSERT INTO character(character_name, level, player_name) VALUES($1, $2, $3)',
           values: [character_name, level, player_name]
         };
         await pool.query(query);
