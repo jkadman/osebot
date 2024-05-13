@@ -7,7 +7,15 @@ const { addCharacter } = require('/home/crow/Documents/programming/osebot/databa
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('addcharacter')
-		.setDescription('Add Character to the characters database.'),
+		.setDescription('Add Character to the characters database.')
+			.addStringOption(option => 
+				option.setName('character_name')
+					.setDescription('The name of the character')
+					.setRequired(true))
+			.addIntegerOption(option =>
+				option.setName('level')
+					.setDescription('The level of the character')
+					.setRequired(true)),
 	async execute(interaction) {
 
 		const characterName = interaction.options.getString('character_name');
