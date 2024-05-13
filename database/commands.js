@@ -21,12 +21,12 @@ async function addCharacter(interaction) {
         await pool.query(query);
   
         // confirmation message
-        return 'Character "${character_name}" added successfully.';
+        return `Character ${character_name} added successfully.`;
       }
       catch (error) {
         // handle errors
         console.error('Error adding character: ', error);
-        throw new Error('Something went wrong with add "${character_name}".');
+        throw new Error(`Something went wrong with add ${character_name}.`);
       }
     }
 
