@@ -34,3 +34,10 @@ The database currently defaults to localhost and the default psql port 5432.
 
 Photos
 
+![add a character](images/PXL_20240513_074810102.MP.jpg)
+
+![add an item](images/PXL_20240513_074833095.MP.jpg)
+
+![get a list of the characters](images/PXL_20240513_074909315.jpg)![alt text](images/PXL_20240513_074913519.jpg)
+
+![get a list of items](images/PXL_20240513_074925023.jpg)![alt text](images/PXL_20240513_074929160.jpg)
