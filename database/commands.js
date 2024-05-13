@@ -19,13 +19,13 @@ console.log('query', query);
 // command to get PCs from characters table
 async function getCharacters(interaction) {
   const query = {
-      text: 'SELECT * FROM characters;',
+      text: 'SELECT character_name, level FROM characters;',
   };
 console.log('query', query);
   try {
       const res = await pool.query(query);
       if (res.rows.length > 0) {
-        const characters = res.rows.map(row => `${row.character_name}, Level ${row.level}, Played by ${row.player_name}`).join('\n');
+        const characters = res.rows.map(row => `${row.character_name}, Level ${row.level}`).join('\n');
         return interaction.reply(`Characters:\n${characters}`);
       } else {
         return interaction.reply("Could not access characters");
