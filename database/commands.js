@@ -25,10 +25,10 @@ async function addItem(interaction, item_name, magic, amount_carried) {
 console.log('query', query);
   try {
       await pool.query(query);
-      return interaction.reply(`Character "${character_name}" added successfully.`);
+      return interaction.reply(`Your "${item_name}" has been added successfully.`);
   } catch (error) {
-      console.error('Error adding character: ', error);
-      throw new Error(`Something went wrong with adding ${character_name}.`);
+      console.error('Error adding item: ', error);
+      throw new Error(`Something went wrong with adding ${item_name}.`);
   }
 }
 

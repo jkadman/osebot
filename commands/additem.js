@@ -29,14 +29,14 @@ module.exports = {
 	
 		
 		try {
-			await addCharacter(interaction, itemName, isItMagic, amountCarried);
+			await addItem(interaction, itemName, isItMagic, amountCarried);
 
 		} catch (error) {
 			// handle error
 			// console.error('Error adding character: ', error);
-			console.error('Error adding character: ', error.message);
+			console.error('Error adding item: ', error.message);
 
-			await interaction.reply('Failed to add character');
+			await interaction.reply('Failed to add item');
 		}
     
     // await interaction.followUp('your item has been added')
