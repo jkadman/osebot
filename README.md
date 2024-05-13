@@ -8,8 +8,8 @@ This fairly simple bot uses discordjs and psql.  The calls to the database are k
 I play in an OSE game with people that I had recently met though the mutual desire to play in OSR games and wasn't sure I could make it to all the sessions.  Since I am often the note taker, I wanted to create a bot that I could upload info to and they could access when I wasn't there.  It seemed appropriate to also have a database of the PCs that could be tracked as well.
 
 #### Installing
-At this time, I would not recommend installing this app and the bot is not public.  While I was creating this bot I installed uneeded libraries as I was just learning discordjs and wasn't sure if I wanted to use PostgreSQL or something else.
-But if you must
+This bot is currently not public and is missing key functionality I would like to see it include, like listing what PC has what piece of equipment.  But if you want to try it out here is what you need to know:
+
 ```
 npm install
 ```
