@@ -24,7 +24,8 @@ database_user=
 database_password=
 ```
 
-The database currently defaults to localhost and the default psql port 5432.
+The database currently defaults to localhost and the default psql port 5432.  It assumes 2 tables, one called
+characters with the columns: player_name, character_name and level.  The other is equipment with the columns: item_name, magic and amount_carried.  Currently, magic is set to bit with 0 meaning false and 1 meaning true, to indicate whether an item is magic or not. 
 
 #### Future Ideas
 - make the databases more interactive so you can see what PCs are carrying what items
