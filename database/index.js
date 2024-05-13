@@ -20,6 +20,7 @@ const pool = new Pool({
   port: 5432
 })
 
+console.log('pool', pool);
 // code for SQL currently using PSQL
 // const sequelize = new Sequelize(process.env.database_name, process.env.database_user, process.env.database_password, {
 //   host: 'localhost',
@@ -93,3 +94,5 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // Login to Discord with your client's token
 client.login(process.env.DISCORD_TOKEN);
+
+module.exports = { pool };

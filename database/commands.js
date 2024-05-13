@@ -1,4 +1,5 @@
-const { pool } = require('pg');
+//const { Pool } = require('pg');
+const { pool } = require('./index');
 
 // command to add character to database
 async function addCharacter(interaction) {
@@ -8,14 +9,15 @@ async function addCharacter(interaction) {
       const player_name = interaction.user.username;
   
       try {
-        // const query = {
-        //   text: 'INSERT INTO character(character_name, level, player_name) VALUES($1, $2, $3)',
-        //   values: [character_name, level, player_name]
-        // };
         const query = {
-          text: 'SELECT * FROM characters',
+          text: 'INSERT INTO character(character_name, level, player_name) VALUES($1, $2, $3)',
+          values: [character_name, level, player_name]
         };
+        // const query = {
+        //   text: 'SELECT * FROM characters',
+        // };
         console.log('query', query);
+        console.log('pool', pool);
         await pool.query(query);
   
         // confirmation message
