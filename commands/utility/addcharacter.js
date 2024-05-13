@@ -1,8 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { addCharacter } = require('/home/crow/Documents/programming/osebot/database/commands.js');
 
-// let list = ['sword', ' shield'];
-
 // idea for adding gear, will use in conjunction with SQL to add item to database
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -24,13 +22,11 @@ module.exports = {
 		console.log('characterName: ', characterName);
 		console.log('characterLevel: ', characterLevel);
 		console.log('playerName: ', playerName);
-		// async execute()
-    // let test = [0];
+	
+		
 		try {
 			await addCharacter(interaction, playerName, characterName, characterLevel);
 
-			// send confirmation
-			// await interaction.reply('Character successfully added');
 		} catch (error) {
 			// handle error
 			// console.error('Error adding character: ', error);
