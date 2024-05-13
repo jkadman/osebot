@@ -16,6 +16,26 @@ console.log('query', query);
   }
 }
 
+// command to get PCs from characters table
+async function getCharacters(interaction) {
+  const query = {
+      text: 'SELECT * FROM characters;',
+  };
+console.log('query', query);
+  try {
+      const res = await pool.query(query);
+      if (res.rows.length > 0) {
+        const characters = res.rows.map(row => `${row.character_name}, Level ${row.level}, Played by ${row.player_name}`).join('\n');
+        return interaction.reply(`Characters:\n${characters}`);
+      } else {
+        return interaction.reply("Could not access characters");
+      }
+  } catch (error) {
+      console.error('Error getting characters: ', error);
+      throw new Error(`Something went wrong with getting the characters.`);
+  }
+}
+
 // command to add Item to equipment
 async function addItem(interaction, item_name, magic, amount_carried) {
   const query = {
@@ -34,6 +54,7 @@ console.log('query', query);
 
     module.exports = {
       addCharacter,
-      addItem
+      addItem,
+      getCharacters
     };
   
