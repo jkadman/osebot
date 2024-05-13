@@ -25,7 +25,7 @@ console.log('query', query);
   try {
       const res = await pool.query(query);
       if (res.rows.length > 0) {
-        const characters = res.rows.map(row => `${row.character_name}, Level ${row.level}`).join('\n');
+        const characters = res.rows.map(row => `${row.character_name}, Level ${row.level}, Played by ${row.player_name}`).join('\n');
         return interaction.reply(`Characters:\n${characters}`);
       } else {
         return interaction.reply("Could not access characters");
