@@ -52,9 +52,30 @@ console.log('query', query);
   }
 }
 
+// command to get items from equipment table
+async function getItems(interaction) {
+  const query = {
+      text: 'SELECT * FROM equipment;',
+  };
+console.log('query', query);
+  try {
+      const res = await pool.query(query);
+      if (res.rows.length > 0) {
+        const equipment = res.rows.map(row => `${row.item_name}, Magic (0 no, 1 yes)? ${row.magic}, Amount carried ${row.amount_carried}`).join('\n');
+        return interaction.reply(`Equipment:\n${equipment}`);
+      } else {
+        return interaction.reply("Could not access equipment");
+      }
+  } catch (error) {
+      console.error('Error getting equipment: ', error);
+      throw new Error(`Something went wrong with getting the equipment.`);
+  }
+}
+
     module.exports = {
       addCharacter,
       addItem,
-      getCharacters
+      getCharacters,
+      getItems
     };
   

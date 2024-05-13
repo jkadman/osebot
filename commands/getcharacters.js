@@ -5,7 +5,7 @@ const { getCharacters } = require('../database/commands.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('getcharacters')
-		.setDescription('Get from the characters database.'),
+		.setDescription('Get PCs from the characters database.'),
 	async execute(interaction) {
 		
 		try {
