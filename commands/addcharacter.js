@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { addCharacter } = require('/home/crow/Documents/programming/osebot/database/commands.js');
+const { addCharacter } = require('../database/commands.js');
 
 // idea for adding gear, will use in conjunction with SQL to add item to database
 module.exports = {
