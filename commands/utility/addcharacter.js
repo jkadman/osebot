@@ -19,18 +19,23 @@ module.exports = {
 	async execute(interaction) {
 
 		const characterName = interaction.options.getString('character_name');
-		const characterLevel = interaction.options.getString('level')
-		const player_name = interaction.user.username;
+		const characterLevel = interaction.options.getInteger('level')
+		const playerName = interaction.user.username;
+		console.log('characterName: ', characterName);
+		console.log('characterLevel: ', characterLevel);
+		console.log('playerName: ', playerName);
 		// async execute()
     // let test = [0];
 		try {
-			await addCharacter(interaction, characterName, characterLevel, player_name);
+			await addCharacter(interaction, playerName, characterName, characterLevel);
 
 			// send confirmation
-			await interaction.reply('Character successfully added');
+			// await interaction.reply('Character successfully added');
 		} catch (error) {
 			// handle error
-			console.error('Error adding character: ', error);
+			// console.error('Error adding character: ', error);
+			console.error('Error adding character: ', error.message);
+
 			await interaction.reply('Failed to add character');
 		}
     

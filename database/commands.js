@@ -29,18 +29,18 @@ const { pool } = require('./index');
 //         throw new Error(`Something went wrong with add ${character_name}.`);
 //       }
 //     }
-async function addCharacter(interaction, characterName, characterLevel, playerName) {
+async function addCharacter(interaction, player_name, character_name, level) {
   const query = {
-      text: 'INSERT INTO characters(character_name, level, player_name) VALUES($1, $2, $3)',
-      values: [characterName, characterLevel, playerName]
+      text: 'INSERT INTO characters(player_name, character_name, level) VALUES($1, $2, $3)',
+      values: [player_name, character_name, level]
   };
 console.log('query', query);
   try {
       await pool.query(query);
-      return interaction.reply(`Character "${characterName}" added successfully.`);
+      return interaction.reply(`Character "${character_name}" added successfully.`);
   } catch (error) {
       console.error('Error adding character: ', error);
-      throw new Error(`Something went wrong with adding ${characterName}.`);
+      throw new Error(`Something went wrong with adding ${character_name}.`);
   }
 }
 
